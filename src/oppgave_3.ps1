@@ -12,7 +12,6 @@ $kortstokk = ConvertFrom-Json -InputObject $kortstokkJson
 #    Write-Output "$($kort.suit[0])+$($kort.value)"
 #}
 
-
 function kortstokkTilStreng {
     [OutputType([string])]
     param (
@@ -21,7 +20,7 @@ function kortstokkTilStreng {
     )
     $streng = ""
     foreach ($kort in $kortstokk) {
-        $streng = $streng + "$($kort.suit[0])" + "$($kort.value[0])" + ","
+        $streng = $streng + "$($kort.suit[0])" + "$($kort.value)" + ","
     }
     return $streng.TrimEnd(',')
 }
