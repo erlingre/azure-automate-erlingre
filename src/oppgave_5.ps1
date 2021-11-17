@@ -7,16 +7,6 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $webrequest = Invoke-WebRequest -Uri $UrlKortstokk 
-
-#try { 
-#    $webrequest = Invoke-WebRequest -Uri $UrlKortstokk 
-#}
-# Todo: catch a specific exception.
-#catch {
-#   "An error occurred."
-#   Exit 1
-#}
-
 $kortstokkJson = $webRequest.Content
 
 $kortstokk = ConvertFrom-Json -InputObject $kortstokkJson
@@ -34,4 +24,25 @@ function kortstokkTilStreng {
     return $streng.TrimEnd(',')
 }
 
+function samletPoengsum {    
+    [OutputType([string])]
+    param (
+        [object[]]
+        $kortstokk
+    )
+    $totalsum = 0
+    
+    foreach ($kort in $kortstokk) {
+        $totalsum += switch ($kort.value) {
+            'J' { 10 }
+            'Q' { 10 }
+            'K' { 10 }
+            'A' { 11 }
+            Default { $kort.value }
+        }
+    }
+    return $totalsum
+}
+ 
 Write-Output "Kortstokk: $(kortstokkTilStreng -kortstokk $kortstokk)"
+Write-Output "Poengsum: $(samletPoengsum -kortstokk $kortstokk)"
