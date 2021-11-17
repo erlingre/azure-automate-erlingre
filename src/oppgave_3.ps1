@@ -12,6 +12,7 @@ $kortstokk = ConvertFrom-Json -InputObject $kortstokkJson
 #    Write-Output "$($kort.suit[0])+$($kort.value)"
 #}
 
+
 function kortstokkTilStreng {
     [OutputType([string])]
     param (
