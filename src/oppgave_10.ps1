@@ -82,7 +82,12 @@ function finnVinner {
     elseif ($minPoengsum -gt $blackjack ) {
         return "Magnus"
     }
-    return ""
+    elseif (($minPoengsum -ge 17) -and ($magnusPoengsum -gt $minPoengsum)) {
+        return "Magnus"
+    }     
+    else {
+        return ""
+    }   
 }
 
 $ErrorActionPreference = 'Stop'
