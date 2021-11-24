@@ -65,19 +65,21 @@ function finnVinner {
         [object[]] $minKortstokk, [object[]] $magnusKortstokk
     )
 
-    if (($magnusPoengsum -eq 21) -and ($minPoengsum -eq 21)) {
+    $blackjack = 21
+
+    if (($magnusPoengsum -eq $blackjack) -and ($minPoengsum -eq $blackjack)) {
         return "Draw"
     }
-    elseif ($minPoengsum -eq 21) {
+    elseif ($minPoengsum -eq $blackjack) {
         return "meg" 
     }
-    elseif ($magnusPoengsum -eq 21 ) {
+    elseif ($magnusPoengsum -eq $blackjack ) {
         return "Magnus"
     }
-    elseif ($magnusPoengsum -gt 21 ) {
+    elseif ($magnusPoengsum -gt $blackjack ) {
         return "meg"
     }
-    elseif ($minPoengsum -gt 21 ) {
+    elseif ($minPoengsum -gt $blackjack ) {
         return "Magnus"
     }
     return ""
