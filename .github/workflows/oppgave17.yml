@@ -25,7 +25,7 @@ jobs:
         with:
           modules-to-cache: Az.Storage, Az.Functions, Az.Websites, Az.Resources, Az.Accounts
       - name: Deploy Function app
-        run: ./src/funcApp/deployWithBicep.ps -firstName erling -resourceGroupName 'erling-workshop-n2inx53idqixo'
+        run: ./funcApp/deployWithBicep.ps1 -firstName erling -resourceGroupName 'erling-workshop-n2inx53idqixo'
 
 
         
