@@ -1,5 +1,5 @@
-name: oppgave 17
-on: [ push, workflow_dispatch ]
+name: oppgave 18
+on: workflow_dispatch
   
 jobs:
   job1:
